@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NAMAZU Landing Page
 
-## Getting Started
+Landing page pemesanan brand **NAMAZU** (Next.js App Router + TypeScript + Tailwind CSS).
 
-First, run the development server:
+## Jalankan Project
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Konfigurasi Penting
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Ubah nilai berikut di `lib/constants.ts`:
 
-## Learn More
+- `WHATSAPP_NUMBER` ? nomor WA tujuan (format internasional tanpa +, contoh: `62812xxxx`).
+- `GOOGLE_FORM_URL` ? link Google Form untuk pemesanan.
+- `GOOGLE_FORM_EMBED_URL` ? link embed Google Form (iframe). Embed akan tampil jika bukan placeholder.
+- `LOCATION_ADDRESS` ? alamat outlet.
+- `OPEN_HOURS` ? jam operasional.
 
-To learn more about Next.js, take a look at the following resources:
+## Gambar & Logo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Logo utama: `public/brand/namazu-logo.png`
+- Foto makanan: letakkan gambar di folder `public/food/`.
+  - Contoh nama file yang dipakai: `lele-1.png` s/d `lele-12.png`
+  - Ganti dengan foto asli agar galeri dan menu tampil nyata.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Struktur Utama
 
-## Deploy on Vercel
+- `app/layout.tsx` ? metadata + font Inter
+- `app/page.tsx` ? halaman landing
+- `components/` ? komponen UI utama
+- `lib/` ? data menu, constants, dan helper WhatsApp
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Siap untuk di-deploy atau dikembangkan lebih lanjut.

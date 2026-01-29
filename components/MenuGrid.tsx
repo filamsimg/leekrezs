@@ -7,9 +7,17 @@ type MenuGridProps = {
   items: MenuItem[];
   cart: CartItem[];
   onAdd: (item: MenuItem) => void;
+  onGoToOrder: () => void;
 };
 
-export default function MenuGrid({ items, cart, onAdd }: MenuGridProps) {
+export default function MenuGrid({
+  items,
+  cart,
+  onAdd,
+  onGoToOrder,
+}: MenuGridProps) {
+  const summary = cart.map((item) => `${item.name} x${item.qty}`).join(", ");
+
   return (
     <section id="menu" className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
       <div className="mb-8 flex flex-col gap-3">
@@ -24,6 +32,15 @@ export default function MenuGrid({ items, cart, onAdd }: MenuGridProps) {
           lanjutkan ke form pemesanan.
         </p>
       </div>
+      {cart.length > 0 && (
+        <button
+          type="button"
+          onClick={onGoToOrder}
+          className="mb-6 w-full rounded-2xl border border-orange-400/30 bg-orange-400/10 px-4 py-3 text-left text-sm text-orange-100 transition hover:border-orange-400/60 hover:bg-orange-400/20"
+        >
+          Keranjang saat ini: {summary} (klik untuk checkout)
+        </button>
+      )}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {items.map((item) => {
           const inCart = cart.find((cartItem) => cartItem.id === item.id);

@@ -14,11 +14,9 @@ Buka `http://localhost:3000`.
 
 Ubah nilai berikut di `lib/constants.ts`:
 
-- `WHATSAPP_NUMBER` ? nomor WA tujuan (format internasional tanpa +, contoh: `62812xxxx`).
-- `GOOGLE_FORM_URL` ? link Google Form untuk pemesanan.
-- `GOOGLE_FORM_EMBED_URL` ? link embed Google Form (iframe). Embed akan tampil jika bukan placeholder.
-- `LOCATION_ADDRESS` ? alamat outlet.
-- `OPEN_HOURS` ? jam operasional.
+- `WHATSAPP_NUMBER` - nomor WA tujuan (format internasional tanpa +, contoh: `62812xxxx`).
+- `LOCATION_ADDRESS` - alamat outlet.
+- `OPEN_HOURS` - jam operasional.
 
 ## Gambar & Logo
 
@@ -29,9 +27,9 @@ Ubah nilai berikut di `lib/constants.ts`:
 
 ## Struktur Utama
 
-- `app/layout.tsx` ? metadata + font Inter
-- `app/page.tsx` ? halaman landing
-- `components/` ? komponen UI utama
-- `lib/` ? data menu, constants, dan helper WhatsApp
+- `app/layout.tsx` - metadata + font Inter
+- `app/page.tsx` - halaman landing
+- `components/` - komponen UI utama
+- `lib/` - data menu, constants, dan helper WhatsApp
 
 Siap untuk di-deploy atau dikembangkan lebih lanjut.

@@ -1,6 +1,4 @@
-export const GOOGLE_FORM_URL = "PASTE_GOOGLE_FORM_LINK_HERE";
-export const GOOGLE_FORM_EMBED_URL = "PASTE_EMBED_URL_HERE";
-export const WHATSAPP_NUMBER = "628123456789";
+export const WHATSAPP_NUMBER = "6285853685622";
 
 export const LOCATION_ADDRESS =
   "Jl. Contoh Alamat No. 123, Kota Namazu, Indonesia";

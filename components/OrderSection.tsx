@@ -3,11 +3,6 @@
 import { CartItem, formatRupiah, MenuItem } from "@/lib/menu";
 import { CustomerInfo } from "@/lib/whatsapp";
 
-const hasEmbed = (url: string) => url && url !== "PASTE_EMBED_URL_HERE";
-
-const hasForm = (url: string) =>
-  url && url !== "PASTE_GOOGLE_FORM_LINK_HERE";
-
 type OrderSectionProps = {
   cart: CartItem[];
   menu: MenuItem[];
@@ -18,11 +13,7 @@ type OrderSectionProps = {
   onRemove: (itemId: string) => void;
   onDelete: (itemId: string) => void;
   onSubmit: () => void;
-  onOpenForm: () => void;
-  onWhatsapp: () => void;
   error: string | null;
-  googleFormUrl: string;
-  googleFormEmbedUrl: string;
 };
 
 export default function OrderSection({
@@ -35,11 +26,7 @@ export default function OrderSection({
   onRemove,
   onDelete,
   onSubmit,
-  onOpenForm,
-  onWhatsapp,
   error,
-  googleFormUrl,
-  googleFormEmbedUrl,
 }: OrderSectionProps) {
   return (
     <section id="pesan" className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
@@ -168,46 +155,11 @@ export default function OrderSection({
               onClick={onSubmit}
               className="button-glow inline-flex items-center justify-center rounded-full bg-gradient-to-r from-orange-500 to-amber-400 px-6 py-3 text-sm font-semibold text-black transition hover:scale-[1.02]"
             >
-              Kirim Pesanan
+              Kirim via WhatsApp
             </button>
-
-            <div className="grid gap-3 sm:grid-cols-2">
-              <button
-                type="button"
-                onClick={onOpenForm}
-                disabled={!hasForm(googleFormUrl)}
-                className="inline-flex items-center justify-center rounded-full border border-white/20 px-5 py-3 text-sm font-semibold text-white/70 transition hover:border-orange-400/60 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
-              >
-                Isi Google Form
-              </button>
-              <button
-                type="button"
-                onClick={onWhatsapp}
-                className="inline-flex items-center justify-center rounded-full border border-orange-400/50 px-5 py-3 text-sm font-semibold text-orange-200 transition hover:bg-orange-400/10"
-              >
-                Kirim via WhatsApp
-              </button>
-            </div>
-
-            {!hasForm(googleFormUrl) && (
-              <p className="text-xs text-white/50">
-                Ganti link Google Form di lib/constants.ts agar tombol form aktif.
-              </p>
-            )}
           </div>
         </div>
       </div>
-
-      {hasEmbed(googleFormEmbedUrl) && (
-        <div className="mt-10 overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/60">
-          <iframe
-            title="Google Form Pemesanan"
-            src={googleFormEmbedUrl}
-            className="h-[720px] w-full"
-            loading="lazy"
-          />
-        </div>
-      )}
 
       <div className="mt-10 rounded-2xl border border-white/10 bg-zinc-950/60 p-6">
         <h4 className="text-lg font-semibold text-white">Menu Ringkas</h4>

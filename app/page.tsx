@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MenuGrid from "@/components/MenuGrid";
@@ -12,11 +12,7 @@ import OrderSection from "@/components/OrderSection";
 import Footer from "@/components/Footer";
 import FloatingWA from "@/components/FloatingWA";
 import { CartItem, MENU_ITEMS, MenuItem, formatRupiah } from "@/lib/menu";
-import {
-  GOOGLE_FORM_EMBED_URL,
-  GOOGLE_FORM_URL,
-  WHATSAPP_NUMBER,
-} from "@/lib/constants";
+import { WHATSAPP_NUMBER } from "@/lib/constants";
 import {
   buildWhatsAppLink,
   buildWhatsAppMessage,
@@ -31,13 +27,12 @@ const initialCustomer: CustomerInfo = {
   notes: "",
 };
 
-const isFormReady = (url: string) =>
-  url && url !== "PASTE_GOOGLE_FORM_LINK_HERE";
-
 export default function Home() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [customer, setCustomer] = useState<CustomerInfo>(initialCustomer);
   const [error, setError] = useState<string | null>(null);
+  const [toast, setToast] = useState<string | null>(null);
+  const toastTimeoutRef = useRef<number | null>(null);
 
   const subtotal = useMemo(
     () => cart.reduce((total, item) => total + item.price * item.qty, 0),
@@ -71,6 +66,13 @@ export default function Home() {
       }
       return [...prev, { ...item, qty: 1 }];
     });
+    if (toastTimeoutRef.current) {
+      window.clearTimeout(toastTimeoutRef.current);
+    }
+    setToast(`${item.name} ditambahkan ke keranjang.`);
+    toastTimeoutRef.current = window.setTimeout(() => {
+      setToast(null);
+    }, 1800);
   };
 
   const handleRemove = (itemId: string) => {
@@ -105,15 +107,6 @@ export default function Home() {
     return true;
   };
 
-  const openForm = () => {
-    if (!validateRequired()) return;
-    if (!isFormReady(GOOGLE_FORM_URL)) {
-      setError("Link Google Form belum diisi. Update di lib/constants.ts.");
-      return;
-    }
-    window.open(GOOGLE_FORM_URL, "_blank", "noopener,noreferrer");
-  };
-
   const openWhatsApp = () => {
     if (!validateRequired()) return;
     window.open(whatsappLink, "_blank", "noopener,noreferrer");
@@ -144,7 +137,17 @@ export default function Home() {
     <div className="min-h-screen bg-black text-white">
       <Navbar />
       <Hero whatsappLink={heroWhatsappLink} />
-      <MenuGrid items={MENU_ITEMS} cart={cart} onAdd={handleAdd} />
+      <MenuGrid
+        items={MENU_ITEMS}
+        cart={cart}
+        onAdd={handleAdd}
+        onGoToOrder={() => {
+          const orderSection = document.getElementById("pesan");
+          if (orderSection) {
+            orderSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }}
+      />
       <Gallery />
 
       <section className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
@@ -197,15 +200,16 @@ export default function Home() {
         onAdd={handleAdd}
         onRemove={handleRemove}
         onDelete={handleDelete}
-        onSubmit={openForm}
-        onOpenForm={openForm}
-        onWhatsapp={openWhatsApp}
+        onSubmit={openWhatsApp}
         error={error}
-        googleFormUrl={GOOGLE_FORM_URL}
-        googleFormEmbedUrl={GOOGLE_FORM_EMBED_URL}
       />
       <Footer />
       <FloatingWA />
+      {toast && (
+        <div className="fixed bottom-24 right-6 z-50 rounded-full border border-orange-400/40 bg-black/80 px-5 py-3 text-sm text-orange-100 shadow-[0_0_20px_rgba(255,122,26,0.25)]">
+          {toast}
+        </div>
+      )}
     </div>
   );
 }

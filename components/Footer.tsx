@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { SOCIAL_LINKS, WHATSAPP_NUMBER } from "@/lib/constants";
+import { MapPin, MessageCircle } from "lucide-react";
+import { LOCATION_ADDRESS, WHATSAPP_NUMBER } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -21,13 +22,19 @@ export default function Footer() {
             <p className="text-xs text-white/50">Lele bumbu & kremes renyah</p>
           </div>
         </div>
-        <div className="text-sm text-white/70">WhatsApp: +{WHATSAPP_NUMBER}</div>
-        <div className="flex flex-wrap gap-4 text-xs text-white/60">
-          {SOCIAL_LINKS.map((link) => (
-            <span key={link.label}>
-              {link.label}: {link.value}
-            </span>
-          ))}
+        <div className="inline-flex items-center gap-2 text-sm text-white/70">
+          <MessageCircle className="h-4 w-4 text-orange-300" />
+          WhatsApp: +{WHATSAPP_NUMBER}
+        </div>
+        <div className="flex flex-wrap items-center gap-3 text-xs text-white/70">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-1">
+            <MessageCircle className="h-3.5 w-3.5 text-orange-300" />
+            Chat langsung via WhatsApp
+          </span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-1">
+            <MapPin className="h-3.5 w-3.5 text-orange-300" />
+            {LOCATION_ADDRESS}
+          </span>
         </div>
       </div>
       <div className="border-t border-white/10 py-4 text-center text-xs text-white/40">

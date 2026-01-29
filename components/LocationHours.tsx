@@ -1,6 +1,6 @@
 "use client";
 
-import { LOCATION_ADDRESS, OPEN_HOURS } from "@/lib/constants";
+import { LOCATION_ADDRESS, MAPS_EMBED_URL, OPEN_HOURS } from "@/lib/constants";
 
 export default function LocationHours() {
   return (
@@ -13,18 +13,24 @@ export default function LocationHours() {
           Datang atau Order Delivery
         </h2>
       </div>
-      <div className="grid gap-6 md:grid-cols-2">
-        <div className="rounded-2xl border border-white/10 bg-zinc-950/60 p-6">
-          <h3 className="text-lg font-semibold text-white">Alamat</h3>
-          <p className="mt-2 text-sm text-white/70">{LOCATION_ADDRESS}</p>
-        </div>
-        <div className="rounded-2xl border border-white/10 bg-zinc-950/60 p-6">
-          <h3 className="text-lg font-semibold text-white">Jam Operasional</h3>
-          <ul className="mt-2 space-y-2 text-sm text-white/70">
+      <div className="rounded-2xl border border-white/10 bg-zinc-950/60 p-5">
+        <div className="space-y-3">
+          <h3 className="text-lg font-semibold text-white">Alamat & Jam</h3>
+          <p className="text-sm text-white/70">{LOCATION_ADDRESS}</p>
+          <ul className="space-y-1 text-sm text-white/70">
             {OPEN_HOURS.map((hour) => (
               <li key={hour}>{hour}</li>
             ))}
           </ul>
+        </div>
+        <div className="mt-4 w-full overflow-hidden rounded-xl border border-white/10">
+          <iframe
+            title="Google Maps NAMAZU"
+            src={MAPS_EMBED_URL}
+            className="h-60 w-full"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
       </div>
     </section>

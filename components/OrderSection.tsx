@@ -121,7 +121,7 @@ export default function OrderSection({
               className="w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-orange-400 focus:outline-none"
             />
             <div className="grid gap-3 sm:grid-cols-2">
-              {(["Pickup", "Delivery"] as const).map((option) => (
+              {(["Ambil Sendiri", "Antar"] as const).map((option) => (
                 <button
                   key={option}
                   type="button"

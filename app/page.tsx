@@ -23,7 +23,7 @@ const initialCustomer: CustomerInfo = {
   name: "",
   whatsapp: "",
   address: "",
-  method: "Pickup",
+  method: "Ambil Sendiri",
   notes: "",
 };
 

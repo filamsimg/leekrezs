@@ -4,7 +4,7 @@ export type CustomerInfo = {
   name: string;
   whatsapp: string;
   address: string;
-  method: "Pickup" | "Delivery";
+  method: "Ambil Sendiri" | "Antar";
   notes: string;
 };
 

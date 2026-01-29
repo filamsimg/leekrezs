@@ -15,13 +15,13 @@ export default function Hero({ whatsappLink }: HeroProps) {
           alt="NAMAZU background"
           fill
           priority
-          className="object-cover object-center opacity-75 scale-110 brightness-110"
+          className="hero-bg-animate object-cover object-center opacity-75 scale-110 brightness-110"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/30 to-black/10" />
       </div>
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-start gap-12 px-4 pb-16 sm:px-6 lg:flex-row lg:items-center">
         <div className="flex flex-1 flex-col gap-6">
-          <div className="flex flex-wrap gap-2 text-xs uppercase tracking-[0.3em] text-orange-300/80">
+          <div className="hero-fade-in flex flex-wrap gap-2 text-xs uppercase tracking-[0.3em] text-orange-300/80">
             <span className="rounded-full border border-orange-400/40 px-3 py-1">
               Fresh
             </span>
@@ -32,14 +32,14 @@ export default function Hero({ whatsappLink }: HeroProps) {
               Pickup/Delivery
             </span>
           </div>
-          <h1 className="text-balance text-4xl font-black uppercase leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="hero-fade-in hero-fade-in-delay-1 text-balance text-4xl font-black uppercase leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
             Lele Bumbu & Kremes Renyah
           </h1>
-          <p className="max-w-xl text-lg text-white/70">
+          <p className="hero-fade-in hero-fade-in-delay-2 max-w-xl text-lg text-white/70">
             Pedasnya nampol, kremesnya crunchy. Pesan cepat lewat form atau
             WhatsApp, tinggal pilih favoritmu.
           </p>
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="hero-fade-in hero-fade-in-delay-3 flex flex-col gap-3 sm:flex-row">
             <a
               href="#pesan"
               className="button-glow inline-flex items-center justify-center rounded-full bg-gradient-to-r from-orange-500 to-amber-400 px-6 py-3 text-sm font-semibold text-black transition hover:scale-[1.02]"

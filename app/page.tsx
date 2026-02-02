@@ -51,7 +51,7 @@ export default function Home() {
 
   const heroWhatsappLink = buildWhatsAppLink(
     WHATSAPP_NUMBER,
-    "Halo NAMAZU, saya mau pesan sekarang."
+    "Halo Lee KreZs, saya mau pesan sekarang."
   );
 
   const handleAdd = (item: MenuItem) => {

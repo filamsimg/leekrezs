@@ -50,11 +50,9 @@ export default function Testimonials() {
           Testimoni
         </p>
         <h2 className="text-3xl font-bold text-white sm:text-4xl">
-          Cuplikan Chat Pelanggan
+          Pelanggan
         </h2>
-        <p className="mt-2 text-sm text-white/60">
-          Contoh tampilan chat WA (disamarkan) untuk inspirasi.
-        </p>
+      
       </div>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {testimonials.map((item) => (

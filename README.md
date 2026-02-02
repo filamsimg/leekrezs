@@ -1,6 +1,6 @@
-# NAMAZU Landing Page
+# Lee KreZs Landing Page
 
-Landing page pemesanan brand **NAMAZU** (Next.js App Router + TypeScript + Tailwind CSS).
+Landing page pemesanan brand **Lee KreZs** (Next.js App Router + TypeScript + Tailwind CSS).
 
 ## Jalankan Project
 
@@ -20,7 +20,7 @@ Ubah nilai berikut di `lib/constants.ts`:
 
 ## Gambar & Logo
 
-- Logo utama: `public/brand/namazu-logo.png`
+- Logo utama: `public/brand/LeeKrezs-logo.webp`
 - Foto makanan: letakkan gambar di folder `public/food/`.
   - Contoh nama file yang dipakai: `lele-1.png` s/d `lele-12.png`
   - Ganti dengan foto asli agar galeri dan menu tampil nyata.

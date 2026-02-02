@@ -17,11 +17,11 @@ export default function Navbar() {
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <div className="flex items-center gap-3">
           <Image
-            src="/brand/namazu-logo.png"
-            alt="NAMAZU"
+            src="/brand/LeeKrezs-logo.webp"
+            alt="Lee KreZs"
             width={240}
             height={104}
-            className="h-12 w-auto sm:h-14"
+            className="h-16 w-auto sm:h-20"
             priority
           />
         </div>

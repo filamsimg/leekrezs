@@ -11,8 +11,8 @@ export default function Hero({ whatsappLink }: HeroProps) {
     <section className="relative overflow-hidden pt-20 md:pt-24">
       <div className="absolute inset-0">
         <Image
-          src="/food/lele-kremes.jpg"
-          alt="NAMAZU background"
+          src="/food/lele-kremes.webp"
+          alt="Lee KreZs background"
           fill
           priority
           className="hero-bg-animate object-cover object-center opacity-75 scale-110 brightness-110"
@@ -59,7 +59,7 @@ export default function Hero({ whatsappLink }: HeroProps) {
         <div className="grid flex-1 grid-cols-2 gap-4">
           <div className="rounded-2xl border border-amber-400/30 bg-zinc-900/60 p-3">
             <Image
-              src="/food/lele-kremes.jpg"
+              src="/food/lele-kremes.webp"
               alt="Lele bumbu pedas"
               width={480}
               height={360}
@@ -69,7 +69,7 @@ export default function Hero({ whatsappLink }: HeroProps) {
           </div>
           <div className="rounded-2xl border border-amber-400/30 bg-zinc-900/60 p-3">
             <Image
-              src="/food/lele-kremes.jpg"
+              src="/food/lele-kremes.webp"
               alt="Kremes renyah"
               width={480}
               height={360}

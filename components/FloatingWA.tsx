@@ -7,7 +7,7 @@ import { buildWhatsAppLink } from "@/lib/whatsapp";
 export default function FloatingWA() {
   const link = buildWhatsAppLink(
     WHATSAPP_NUMBER,
-    "Halo NAMAZU, saya mau tanya menu dan promo hari ini."
+    "Halo Lee KreZs, saya mau tanya menu dan promo hari ini."
   );
 
   return (

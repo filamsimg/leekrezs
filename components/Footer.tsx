@@ -10,15 +10,15 @@ export default function Footer() {
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-3">
           <Image
-            src="/brand/namazu-logo.png"
-            alt="NAMAZU"
+            src="/brand/LeeKrezs-logo.webp"
+            alt="Lee KreZs"
             width={240}
             height={104}
             className="h-12 w-auto sm:h-14"
             priority
           />
           <div>
-            <p className="text-sm font-semibold text-white">NAMAZU</p>
+            <p className="text-sm font-semibold text-white">Lee KreZs</p>
             <p className="text-xs text-white/50">Lele bumbu & kremes renyah</p>
           </div>
         </div>
@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 py-4 text-center text-xs text-white/40">
-        (c) 2026 NAMAZU. All rights reserved.
+        (c) 2026 Lee KreZs. All rights reserved.
       </div>
     </footer>
   );

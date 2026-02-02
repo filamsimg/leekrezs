@@ -25,7 +25,7 @@ export default function LocationHours() {
         </div>
         <div className="mt-4 w-full overflow-hidden rounded-xl border border-white/10">
           <iframe
-            title="Google Maps NAMAZU"
+            title="Google Maps Lee KreZs"
             src={MAPS_EMBED_URL}
             className="h-60 w-full"
             loading="lazy"

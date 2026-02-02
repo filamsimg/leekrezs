@@ -9,11 +9,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "NAMAZU",
+  title: "Lee KreZs",
   description:
-    "Landing page pemesanan NAMAZU. Lele bumbu pedas dan kremes renyah, pesan cepat via Google Form atau WhatsApp.",
+    "Landing page pemesanan Lee KreZs. Lele bumbu pedas dan kremes renyah, pesan cepat via Google Form atau WhatsApp.",
   openGraph: {
-    title: "NAMAZU | Lele Bumbu & Kremes Renyah",
+    title: "Lee KreZs | Lele Bumbu & Kremes Renyah",
     description:
       "Pedasnya nampol, kremesnya crunchy. Pesan cepat lewat form atau WhatsApp.",
     type: "website",

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { MenuItem, CartItem, formatRupiah } from "@/lib/menu";
 
@@ -9,6 +10,105 @@ type MenuGridProps = {
   onAdd: (item: MenuItem) => void;
   onGoToOrder: () => void;
 };
+
+type MenuImageCarouselProps = {
+  images: string[];
+  alt: string;
+  badge?: string;
+};
+
+function MenuImageCarousel({ images, alt, badge }: MenuImageCarouselProps) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const imagesCount = images.length;
+  const hasMultiple = imagesCount > 1;
+
+  useEffect(() => {
+    if (!hasMultiple || paused) return;
+    const intervalId = window.setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % imagesCount);
+    }, 4500);
+
+    return () => window.clearInterval(intervalId);
+  }, [hasMultiple, imagesCount, paused]);
+
+  useEffect(() => {
+    if (activeIndex >= imagesCount) {
+      setActiveIndex(0);
+    }
+  }, [activeIndex, imagesCount]);
+
+  const goPrev = () =>
+    setActiveIndex((prev) => (prev - 1 + imagesCount) % imagesCount);
+  const goNext = () =>
+    setActiveIndex((prev) => (prev + 1) % imagesCount);
+
+  return (
+    <div
+      className="relative mb-4 overflow-hidden rounded-xl"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div
+        className="flex transition-transform duration-700 ease-in-out"
+        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+      >
+        {images.map((src, index) => (
+          <Image
+            key={`${src}-${index}`}
+            src={src}
+            alt={`${alt} foto ${index + 1}`}
+            width={500}
+            height={380}
+            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            className="h-40 w-full shrink-0 object-cover transition duration-500 group-hover:scale-105"
+          />
+        ))}
+      </div>
+      {badge && (
+        <span className="absolute left-3 top-3 rounded-full bg-orange-500/90 px-3 py-1 text-xs font-semibold text-black">
+          {badge}
+        </span>
+      )}
+      {hasMultiple && (
+        <>
+          <button
+            type="button"
+            onClick={goPrev}
+            aria-label={`Foto sebelumnya untuk ${alt}`}
+            className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-white/30 bg-black/60 px-2 py-1 text-xs font-semibold text-white/80 shadow-sm transition hover:border-orange-300/70 hover:text-white"
+          >
+            {"<"}
+          </button>
+          <button
+            type="button"
+            onClick={goNext}
+            aria-label={`Foto berikutnya untuk ${alt}`}
+            className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-white/30 bg-black/60 px-2 py-1 text-xs font-semibold text-white/80 shadow-sm transition hover:border-orange-300/70 hover:text-white"
+          >
+            {">"}
+          </button>
+          <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-2">
+            {images.map((_, index) => (
+              <button
+                key={`dot-${index}`}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                aria-label={`Tampilkan foto ${index + 1} untuk ${alt}`}
+                aria-current={index === activeIndex ? "true" : "false"}
+                className={`h-1.5 w-1.5 rounded-full transition ${
+                  index === activeIndex
+                    ? "bg-orange-300"
+                    : "bg-white/40 hover:bg-white/70"
+                }`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
 
 export default function MenuGrid({
   items,
@@ -49,20 +149,15 @@ export default function MenuGrid({
               key={item.id}
               className="group rounded-2xl border border-white/10 bg-zinc-950/60 p-5 transition hover:border-orange-400/40 hover:shadow-[0_0_20px_rgba(255,122,26,0.2)]"
             >
-              <div className="relative mb-4 overflow-hidden rounded-xl">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  width={500}
-                  height={380}
-                  className="h-40 w-full object-cover transition duration-500 group-hover:scale-105"
-                />
-                {item.badge && (
-                  <span className="absolute left-3 top-3 rounded-full bg-orange-500/90 px-3 py-1 text-xs font-semibold text-black">
-                    {item.badge}
-                  </span>
-                )}
-              </div>
+              <MenuImageCarousel
+                images={
+                  item.images && item.images.length > 0
+                    ? item.images
+                    : [item.image]
+                }
+                alt={item.name}
+                badge={item.badge}
+              />
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-white">

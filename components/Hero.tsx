@@ -56,27 +56,7 @@ export default function Hero({ whatsappLink }: HeroProps) {
             </a>
           </div>
         </div>
-        <div className="grid flex-1 grid-cols-2 gap-4">
-          <div className="rounded-2xl border border-amber-400/30 bg-zinc-900/60 p-3">
-            <Image
-              src="/food/lele-kremes.webp"
-              alt="Lele bumbu pedas"
-              width={480}
-              height={360}
-              className="h-40 w-full rounded-xl object-cover sm:h-52"
-              priority
-            />
-          </div>
-          <div className="rounded-2xl border border-amber-400/30 bg-zinc-900/60 p-3">
-            <Image
-              src="/food/lele-kremes.webp"
-              alt="Kremes renyah"
-              width={480}
-              height={360}
-              className="h-40 w-full rounded-xl object-cover sm:h-52"
-            />
-          </div>
-        </div>
+        
       </div>
     </section>
   );

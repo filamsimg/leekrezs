@@ -6,7 +6,7 @@ const navItems = [
   { label: 'Menu', href: '#menu' },
   { label: 'Galeri', href: '#galeri' },
   { label: 'Cara Pesan', href: '#cara-pesan' },
-  { label: 'Testimoni', href: '#testimoni' },
+  // { label: 'Testimoni', href: '#testimoni' },
   { label: 'Lokasi', href: '#lokasi' },
   { label: 'Pesan', href: '#pesan' },
 ];

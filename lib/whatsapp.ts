@@ -18,7 +18,7 @@ export const buildWhatsAppMessage = (
   );
 
   return [
-    "Halo Lee KreZs, saya mau pesan:",
+    "Halo Kak, saya mau pesan:",
     lines.length > 0 ? lines.join("\n") : "- (Belum ada item)",
     `Total: ${formatRupiah(subtotal)}`,
     `Nama: ${customer.name || "-"}`,

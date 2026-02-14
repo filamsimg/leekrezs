@@ -1,4 +1,4 @@
-export const WHATSAPP_NUMBER = "6285853685622";
+export const WHATSAPP_NUMBER = "6285647274940";
 
 export const LOCATION_ADDRESS =
   "Jl. Perintis Kemerdekaan No.14, Panggung, Kec. Tegal Tim., Kota Tegal, Jawa Tengah 52122";

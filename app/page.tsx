@@ -189,7 +189,7 @@ export default function Home() {
       </section>
 
       <Steps />
-      <Testimonials />
+      {/* Testimonials temporarily hidden */}
       <LocationHours />
       <OrderSection
         cart={cart}
